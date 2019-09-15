@@ -2,6 +2,22 @@
 
 {% block main %}
 
-  <h1>Acceso</h1>
+<form action="" method="post">
+  <h1>Basic Blog | Acceso</h1>
+
+  <fieldset>
+    <input type="text" name="username" id="username">
+    <label for="username">Nombre de usuario</label>
+  </fieldset>
+
+  <fieldset>
+    <input type="password" name="password" id="password">
+    <label for="password">Contraseña</label>
+  </fieldset>
+
+  <button>Acceder</button>
+
+  <p>¿No tienes una cuenta? <a href="/registro">Crear cuenta</a></p>
+</form>
 
 {% endblock %}
