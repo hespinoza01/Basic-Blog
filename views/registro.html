@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<form action="" method="post">
+  <h1>Basic Blog | Registro</h1>
+
+  <fieldset>
+    <input type="text" name="fullname" id="fullname">
+    <label for="fullname">Nombre completo</label>
+  </fieldset>
+
+  <fieldset>
+    <input type="email" name="username" id="username">
+    <label for="username">Correo electrónico</label>
+  </fieldset>
+
+  <fieldset>
+    <input type="password" name="password" id="password">
+    <label for="password">Contraseña</label>
+  </fieldset>
+
+  <fieldset>
+    <input type="password" name="confirm_password" id="confirm_password">
+    <label for="confirm_password">Confirmar contraseña</label>
+  </fieldset>
+
+  <button>Registrar</button>
+
+  <p>¿Ya tienes una cuenta? <a href="/acceso">Acceder</a></p>
+</form>
+
+{% endblock %}
