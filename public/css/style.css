@@ -1,0 +1,108 @@
+:root{
+  --primary: #4069f0;
+  --secondary: #fff;
+
+  --primary-alpha: rgba(65, 106, 240, .3);
+
+  --shadow-pimary: 0px 0px 15px 0px rgba(65,106,240,0.9);
+
+  --text: #333333;
+
+  --box-shadow: 0 0 15px 0px gainsboro;
+  --border-radius: 7px;
+}
+
+html, body, *, *:before, *:after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Open Sans";
+  font-size: 16px;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a{
+  text-decoration: none;
+}
+
+fieldset, input, button{
+  border: none;
+  outline: none;
+}
+
+/* Estilos para la página de acceso & registro */
+.form-title{
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.form {
+  width: 30%;
+  padding: 2rem 1rem;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary);
+  box-shadow: var(--box-shadow);
+}
+.form-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-fieldset{
+  position: relative;
+  margin-bottom: 2rem;
+}
+.form-field{
+  padding: .75rem .6rem;
+  width: 100%;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  border: 2px solid var(--primary);
+  transition: background-color .25s;
+}
+.form-field:focus, .form-field:not(:placeholder-shown){
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 var(--primary);
+}
+
+.form-label{
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  padding: .25rem .5rem;
+  color: var(--primary);
+  background-color: var(--secondary);
+  transform: translate(0, -50%) scale(1);
+  transition: transform .2s, top .2s;
+}
+.form-field:focus + .form-label, .form-field:not(:placeholder-shown) + .form-label{
+  top: 0;
+  transform: translate(-0.75rem, -50%) scale(.85);
+}
+
+.btn{
+  font-size: 16px;
+  padding: .5rem .75rem;
+  border-radius: var(--border-radius);
+  background-color: var(--primary);
+  color: var(--secondary);
+  transition: background-color .25s, transform .2s, box-shadow .25s;
+  box-shadow: 0 0 0 0 transparent;
+}
+.btn:hover{
+  background-color: #3961dc;
+  box-shadow: var(--shadow-pimary);
+}
+.btn:active{
+  transform: scale(0.95);
+}
+
+.form-extra{
+  padding-top: 1.5rem;
+}
