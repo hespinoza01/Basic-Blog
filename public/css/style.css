@@ -36,7 +36,7 @@ fieldset, input, button{
 
 /* Estilos para la página de acceso & registro */
 .form-title{
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
@@ -105,4 +105,23 @@ fieldset, input, button{
 
 .form-extra{
   padding-top: 1.5rem;
+}
+
+
+/* estilos de alertas */
+.alert{
+  padding: .5rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius);
+}
+.alert-error{
+  background-color: rgba(255, 99, 71, 0.3);
+  color: red;
+}
+
+.success-register{
+  padding: 1rem;
+}
+.success-register h3{
+  margin-bottom: 1rem;
 }

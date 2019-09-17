@@ -1,16 +1,20 @@
-from flask import Flask, render_template as render, session, redirect, url_for, request
+from flask import Flask, render_template as render, session, redirect, url_for, request, flash
 
-app = Flask(__name__, template_folder='views')
+app = Flask(__name__, template_folder='views', static_folder='public')
+
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['SECRET_KEY'] = 'SoyUnaClaveSecreta'
 
 # Diccionarios para almacenar la información
-USERS = {}
+USERS = dict()
 
 # Función a ejecutarse antes de responder cada petición
 @app.before_request
 def before_request_handler():
-    if 'usernamme' not in session and request.endpoint in ['index']:
+    if 'username' not in session and request.endpoint in ['index']:
         return redirect(url_for('acceso'))
-    elif 'username' in session and request.endpoint in ['acceso', 'registro']:
+
+    if 'username' in session and request.endpoint in ['acceso', 'registro']:
         return redirect(url_for('index'))
 
 
@@ -28,14 +32,34 @@ def index():
     return 'Index'
 
 
-@app.route('/acceso')
+@app.route('/acceso', methods=('GET', 'POST'))
 def acceso():
+    if request.method == "POST":
+        username = request.form['username']
+        user = USERS.get(username)
+
+        if user and user['password'] == request.form['password']:
+            session['username'] = username
+            return redirect(url_for('index'))
+
+        flash('Correo o contraseña incorrecto.')
+
     return render('acceso.html')
 
 
-@app.route('/registro')
+@app.route('/registro', methods=('GET', 'POST'))
 def registro():
-    return 'registro'
+    if request.method == 'POST':
+        fullname = request.form['fullname']
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        if password == confirm_password:
+            USERS[username] = {'fullname': fullname, 'password': password}
+            return render('registro.html', success=True)
+
+    return render('registro.html', success=False)
 
 
 if __name__ == '__main__':

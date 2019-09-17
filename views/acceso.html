@@ -5,9 +5,17 @@
 <form class="form form-center" action="" method="post">
   <h1 class="form-title">Basic Blog | Acceso</h1>
 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+                {% for message in messages %}
+                    <p class="alert alert-error"> {{ message }} </p>
+                {% endfor %}
+        {% endif %}
+    {% endwith %}
+
   <fieldset class="form-fieldset">
     <input class="form-field" type="text" name="username" id="username" placeholder=" " required>
-    <label class="form-label" for="username">Nombre de usuario</label>
+    <label class="form-label" for="username">Correo electrónico</label>
   </fieldset>
 
   <fieldset class="form-fieldset">
