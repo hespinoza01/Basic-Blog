@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<header class="header">
+  <h1 class="header--title">Basic Blog</h1>
+  <div class="header--info">
+  </div>
+</header>
+
+<main class="main _404">
+  <h2>lo siento. El perro se commió la página que quieres acceder.</h2>
+  <h3>No le había dado de comer :'(</h3>
+
+  <a href="/">Ir a inicio</a>
+</main>
+
+<style>
+._404{
+  width: 500px;
+  border-radius: 7px;
+  box-shadow: var(--box-shadow);
+  margin: 0 auto;
+background-color: var(--secondary);
+}
+  </style>
+{% endblock %}

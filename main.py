@@ -83,10 +83,7 @@ def before_request_handler():
 # Acción a realizar en el error 404
 @app.errorhandler(404)
 def page_not_found(err):
-    return """
-        <h1>Page not found</h1>
-        <a href='/'>Inicio</a>
-    """
+    return render('404.html')
 
 
 @app.route('/', methods=('GET', 'POST'))
