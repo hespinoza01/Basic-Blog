@@ -152,6 +152,7 @@ textarea{
 .main{
   min-height: 100vh;
   padding-top: 4rem;
+  margin-bottom: 1rem;
   background-color: #f5f5f5;
 }
 
@@ -243,6 +244,7 @@ textarea{
 /* estilos visualizador de post */
 .post-view{
   margin: 0 auto;
+  margin-bottom: 1rem;
   padding: 3rem 2rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -255,6 +257,9 @@ textarea{
 }
 .post-view .card-date{
   margin-bottom: 1.5rem;
+}
+.post-view .card-content{
+  height: auto;
 }
 .back-to-home{
   text-align: right;
