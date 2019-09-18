@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<header class="header">
+    <h1 class="header--title">Basic Blog</h1>
+    <div class="header--info">
+        <h3>{{ user_fullname }}</h3>
+        <p>{{ user_email }}</p>
+    </div>
+</header>
+
+<main class="main">
+    <section class="new-post">
+        <input class="toggle-editor" type="checkbox" id="toggle-editor">
+        <label class="on-editor toggle-editor--label" for="toggle-editor">Crear publicación</label>
+        <label class="off-editor toggle-editor--label" for="toggle-editor">Descartar publicación</label>
+        <form class="post-editor" action="" method="post">
+
+            <fieldset class="form-fieldset">
+                <input class="form-field" type="text" name="post-title" id="post-title" placeholder=" " required>
+                <label class="form-label" for="post-title">Título publicación</label>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+                <textarea class="form-field post-editor--textarea" name="post-content" id="post-content" placeholder=" " required></textarea>
+                <label class="form-label" for="post-content">Contenido publicación</label>
+            </fieldset>
+
+            <button class="btn">Publicar</button>
+        </form>
+    </section>
+
+    <section class="post-container">
+        {% for key, value in posts.items() %}
+            <article class="card">
+                <h3 class="card-title">{{ value['title'] }}</h3>
+                <p class="card-date">{{ value['date'] }}</p>
+                <p class="card-content">{{ value['content'] }}</p>
+                <a class="btn" href="http://localhost:9000/{{ key }}">Leer más...</a>
+            </article>
+        {% else %}
+            <h3 style="text-align: center">Sin publicaciones que mostrar</h3>
+        {% endfor %}
+    </section>
+
+    <a class="logout" href="/salir">Cerrar sessión</a>
+</main>
+{% endblock %}
