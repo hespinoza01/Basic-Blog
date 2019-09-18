@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<header class="header">
+    <h1 class="header--title">Basic Blog</h1>
+    <div class="header--info">
+        <h3>{{ user_fullname }}</h3>
+        <p>{{ user_email }}</p>
+    </div>
+</header>
+
+<main class="post-view">
+    <h2 class="card-title">{{ title }}</h2>
+    <p class="card-date">{{ date }}</p>
+    <p class="card-content">{{ content }}</p>
+    <p class="back-to-home"><a href="/">Ir a inicio</a></p>
+</main>
+<a class="logout" href="/salir">Cerrar sessión</a>
+
+{% endblock %}
